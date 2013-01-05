@@ -31,6 +31,7 @@ How To Use:
 
 
 	-- Sending a request and receiving response
+		
 		-- Request: request the current logged in user's info, 'request' can be 'me', 'me/friends', etc., 'request method' can be 'GET', 'POST', etc. and 'parameters' are written as { 'key1' = 'value1', 'key2' = 'value2', and so on}, which will return a response in JSON
 
 			fb:getInfo('request', 'request_method', 'parameters')
