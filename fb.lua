@@ -56,7 +56,7 @@ display.setStatusBar( display.HiddenStatusBar )
 local fbCommand			-- forward reference
 local attachment
 local postMsg
-local fbURL
+local fbURL, req_method, parameters
 local nameDialog, descDialog, linkDialog
 local LOGOUT = 1
 local SHOW_DIALOG = 2
@@ -151,8 +151,8 @@ local function listener( event )
 
 		-- Request the current logged in user's info
 		if fbCommand == GET_USER_INFO then
-			facebook.request( fbURL )
---			facebook.request( "me/friends" )		-- Alternate request
+			facebook.request( fbURL, req_method, parameters )
+			--facebook.request( "me/friends", "GET", attach )		-- Alternate request
 		end
 
 		-- This code posts a photo image to your Facebook Wall
@@ -258,10 +258,12 @@ function FB:showDialog(name, desc, link)
 	facebook.login( appId, listener, {"publish_stream"}  )
 end
 
-function FB:getInfo(callUrl)
+function FB:getInfo(callUrl, req, params)
 	-- call the login method of the FB session object, passing in a handler
 	-- to be called upon successful login.
-	fbURL = callUrl 
+	fbURL = callUrl
+	req_method = req
+	parameters = params
 	fbCommand = GET_USER_INFO
 	facebook.login( appId, listener, {"publish_stream"}  )
 end

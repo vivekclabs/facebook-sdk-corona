@@ -5,35 +5,35 @@ Modified Facebook SDK - Corona
 
 How To Use:
 
-	1.	Add 'fb.lua' to your project.
-	2.	Import this class in the file from which Facebook API needs to be called.
-	local fb = require('fb')
-  	3.  Methods to be used:
+1.	Add 'fb.lua' to your project.
+2.	Import this class in the file from which Facebook API needs to be called.
+		local fb = require('fb')
+3.  Methods to be used:
 
 	-- To be called initially before any other method call
 
-	fb:setUpAppId('Enter your app Id here')
+		fb:setUpAppId('Enter your app Id here')
 
 
 	-- To post a message on your wall
 
-	fb:postMessageToFacebook('Enter a message to be posted here')
+		fb:postMessageToFacebook('Enter a message to be posted here')
 
 
 	-- To post an image on your wall
 
-	fb:postImageOnFacebook( 'Name of the image', 'Link to be opened on image click', 'Link Caption', 'Description to be given with the image', 'Link of an image to be posted', 'Action Name', 'Action Link' )
+		fb:postImageOnFacebook( 'Name of the image', 'Link to be opened on image click', 'Link Caption', 'Description to be given with the image', 'Link of an image to be posted', 'Action Name', 'Action Link' )
 
 
 	-- display a Facebook dialog box for posting to your Wall
 
-	fb:showDialog('Name', 'Description', 'Link')
+		fb:showDialog('Name', 'Description', 'Link')
 
 
 	-- Sending a request and receiving response
-		-- Request: request the current logged in user's info, 'request' can be 'me', 'me/friends', etc. which will return a response in JSON
+		-- Request: request the current logged in user's info, 'request' can be 'me', 'me/friends', etc., 'request method' can be 'GET', 'POST', etc. and 'parameters' are written as { 'key1' = 'value1', 'key2' = 'value2', and so on}, which will return a response in JSON
 
-			fb:getInfo('request')
+			fb:getInfo('request', 'request_method', 'parameters')
 
 		-- Response: delegate method ––>> Copy this method in the class where 'fb.lua' has been imported
 
